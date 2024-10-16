@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Velvet Vogue</title>
+    <link rel="stylesheet" href="products.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <b><a href="home.html">Velvet Vogue</a></b>
+            </div>
+            <div class="nav_menu">
+                <ul>
+                    <li><a href="home.html">Home</a></li>
+                    <li><a class="active" href="products.html">Products</a></li>
+                    <li><a href="categories.html">Categories</a></li>
+                    <li><a href="support.html">Support</a></li>
+                    <li><a href="join.html">Join</a></li>
+                </ul>
+            </div>
+            <div class="cart">
+                <a href="cart.html">🛒 Cart (<span id="cartCount">0</span>)</a>
+            </div>
+        </nav>
+
+        <!-- Header with search bar -->
+        <div class="header-search">
+            <h1>Explore Velvet Vogue Collection</h1>
+            <input type="text" id="searchBar" placeholder="Search for products..." onkeyup="filterProducts()">
+        </div>
+    </header>
+
+    <!-- Main Product Gallery -->
+    <main>
+        <div class="product-gallery" id="productGallery">
+            <!-- Example Product Cards -->
+            <div class="product-card" data-name="Stylish Jacket">
+                <img src="6 (2).jpg" alt="Stylish Jacket">
+                <h3>Stylish Jacket</h3>
+                <p>$99.99</p>
+                <button onclick="addToCart('Stylish Jacket', 99.99)">Add to Cart</button>
+                <a href="details.html?id=1" class="details-link">View Details</a>
+            </div>
+
+            <div class="product-card" data-name="Casual Shirt">
+                <img src="6 (3).jpg" alt="Casual Shirt">
+                <h3>Casual Shirt</h3>
+                <p>$49.99</p>
+                <button onclick="addToCart('Casual Shirt', 49.99)">Add to Cart</button>
+                <a href="details.html?id=2" class="details-link">View Details</a>
+            </div>
+
+            <!-- Add 28 more products similarly -->
+            <!-- Repeat more <div class="product-card"> here with different products to fill 3 columns and 10 rows. -->
+        </div>
+    </main>
+
+    <!-- JavaScript for Search and Cart -->
+    <script src="script.js"></script>
+</body>
+</html>
