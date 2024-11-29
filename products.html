@@ -7,26 +7,22 @@
     <link rel="stylesheet" href="products.css">
 </head>
 <body>
+
     <!-- Navigation Bar -->
     <header>
         <nav class="navbar">
-            <div class="logo">
-                <b><a href="home.html">Velvet Vogue</a></b>
-            </div>
+            <div class="logo"><b><a href="home.html">Velvet Vogue</a></b></div>
             <div class="nav_menu">
                 <ul>
-                    <li><a href="home.html">Home</a></li>
-                    <li><a class="active" href="products.html">Products</a></li>
+                    <li><a class="active" href="#">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
                     <li><a href="categories.html">Categories</a></li>
                     <li><a href="support.html">Support</a></li>
                     <li><a href="join.html">Join</a></li>
                 </ul>
             </div>
-            <div class="cart">
-                <a href="cart.html">🛒 Cart (<span id="cartCount">0</span>)</a>
-            </div>
         </nav>
-
+    </header>
         <!-- Header with search bar -->
         <div class="header-search">
             <h1>Explore Velvet Vogue Collection</h1>
@@ -36,9 +32,9 @@
 
     <!-- Main Product Gallery -->
     <main>
-        <div class="product-gallery" id="productGallery">
+        <!-- <div class="product-gallery" id="productGallery"> -->
             <!-- Example Product Cards -->
-            <div class="product-card" data-name="Stylish Jacket">
+            <!-- <div class="product-card" data-name="Stylish Jacket">
                 <img src="6 (2).jpg" alt="Stylish Jacket">
                 <h3>Stylish Jacket</h3>
                 <p>$99.99</p>
@@ -52,12 +48,128 @@
                 <p>$49.99</p>
                 <button onclick="addToCart('Casual Shirt', 49.99)">Add to Cart</button>
                 <a href="details.html?id=2" class="details-link">View Details</a>
-            </div>
+            </div> -->
 
             <!-- Add 28 more products similarly -->
             <!-- Repeat more <div class="product-card"> here with different products to fill 3 columns and 10 rows. -->
-        </div>
+                <section class="Product-1">
+                    <h2><b>Products</b></h2>
+                    <div class="promotion-container">
+                        <!-- Promotion 1 -->
+                        <div class="promo-box">
+                            <img src="5.PNG" alt="Promotion 1" class="promo-img">
+                            <div class="promo-details">
+                                <h3>Dress</h3>
+                                <p>$99.99</p>
+                                <a href="products.html" class="promo-button">View Details</a>
+                                <button onclick="addToCart('Dress', 99.99)">Add to Cart</button>
+                            </div>
+                        </div>
+            
+                        <!-- Promotion 2 -->
+                        <div class="promo-box">
+                            <img src="2.PNG" alt="Promotion 2" class="promo-img">
+                            <div class="promo-details">
+                                <h3>New Arrivals</h3>
+                                <p>Check out the latest trends</p>
+                                <a href="products.html" class="promo-button">View Details</a>
+                                <button onclick="addToCart('Dress', 99.99)">Add to Cart</button>
+                            </div>
+                        </div>
+            
+                        <!-- Promotion 3 -->
+                        <div class="promo-box">
+                            <img src="3.PNG" alt="Promotion 3" class="promo-img">
+                            <div class="promo-details">
+                                <h3>Exclusive Offer</h3>
+                                <p>Buy 1 get 1 free on select items</p>
+                                <a href="products.html" class="promo-button">View Details</a>
+                                <button onclick="addToCart('Dress', 99.99)">Add to Cart</button>
+                            </div>
+                        </div>
+            
+                        <!-- Promotion 4 -->
+                        <div class="promo-box">
+                            <img src="6 (2).jpg" alt="Promotion 3" class="promo-img">
+                            <div class="promo-details">
+                                <h3>Exclusive Offer</h3>
+                                <p>Buy 1 get 1 free on select items</p>
+                                <a href="products.html" class="promo-button">View Details</a>
+                                <button onclick="addToCart('Dress', 99.99)">Add to Cart</button>
+                            </div>
+                        </div>
+                    </section>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <section class="Product-2">
+                        <div class="promotion-container">
+                            <!-- Promotion 1 -->
+                            <div class="promo-box">
+                                <img src="5.PNG" alt="Promotion 1" class="promo-img">
+                                <div class="promo-details">
+                                    <h3>Dress</h3>
+                                    <p>$99.99</p>
+                                    <a href="products.html" class="promo-button">View Details</a>
+                                    <button onclick="addToCart('Dress', 99.99)">Add to Cart</button>
+                                </div>
+                            </div>
+                
+                            <!-- Promotion 2 -->
+                            <div class="promo-box">
+                                <img src="2.PNG" alt="Promotion 2" class="promo-img">
+                                <div class="promo-details">
+                                    <h3>New Arrivals</h3>
+                                    <p>Check out the latest trends</p>
+                                    <a href="products.html" class="promo-button">View Details</a>
+                                    <button onclick="addToCart('Dress', 99.99)">Add to Cart</button>
+                                </div>
+                            </div>
+                
+                            <!-- Promotion 3 -->
+                            <div class="promo-box">
+                                <img src="3.PNG" alt="Promotion 3" class="promo-img">
+                                <div class="promo-details">
+                                    <h3>Exclusive Offer</h3>
+                                    <p>Buy 1 get 1 free on select items</p>
+                                    <a href="products.html" class="promo-button">View Details</a>
+                                    <button onclick="addToCart('Dress', 99.99)">Add to Cart</button>
+                                </div>
+                            </div>
+                
+                            <!-- Promotion 4 -->
+                            <div class="promo-box">
+                                <img src="6 (2).jpg" alt="Promotion 3" class="promo-img">
+                                <div class="promo-details">
+                                    <h3>Exclusive Offer</h3>
+                                    <p>Buy 1 get 1 free on select items</p>
+                                    <a href="products.html" class="promo-button">View Details</a>
+                                    <button onclick="addToCart('Dress', 99.99)">Add to Cart</button>
+                                </div>
+                            </div>
+                    </section>
+                    <br>
+                        
+
     </main>
+
+    <!-- Contact Info Section -->
+    <footer>
+        <div class="contact">
+            <h2><b>Contact Us</b></h2>
+            <div class="address">
+                <div class="add-box">
+                    <h3><b>Velvet Vogue</b></h3>
+                    <p>500/A,<br>Ananda Coomaraswamy Mawatha,<br>Colombo 00700</p>
+                    <div class="tel">
+                        <p><b>Tel No:</b><br> +94 758 6957</p>
+                    </div>
+                    <div><p><b>Email:</b> Velvetvogue@support.com</p></div>
+                </div>
+            </div>
+        </div>
+    </footer>
 
     <!-- JavaScript for Search and Cart -->
     <script src="script.js"></script>
