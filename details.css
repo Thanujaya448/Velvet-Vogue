@@ -95,62 +95,68 @@ body {
     background-color: #0056b3;
 }
 
-/* Promotion & New Arrivals Section */
+
+/* products details page */
 h2 {
     font-size: 32px;
     text-align: center;
     margin-bottom: 30px;
 }
 
-.promotion, .newarrivals {
+.details {
     padding: 50px 20px;
     background-color: #fff;
 }
 
-.promotion-container, .newarrivals-container {
-    display: flex;
+.details-container {
+    margin: auto;
+    display: inline;
     gap: 20px;
     justify-content: space-between;
     flex-wrap: wrap;
+    position: relative;
 }
 
-/* Promotion & New Arrivals Boxes */
-.promo-box, .newarr-box {
-    flex: 1;
-    max-width: 30%;
+/* details Box */
+.details-box {
+    display: flex;
+    max-width: 50%;
     background-color: #ffffff;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.397);
     transition: transform 0.3s;
 }
 
-.promo-box:hover, .newarr-box:hover {
+.details-box:hover {
     transform: translateY(-5px);
 }
 
-.promo-img, .arr-img {
-    width: 100%;
+.details-img {
+    width: 50%;
     height: 70%;
     object-fit: cover;
     border-radius: 10px 10px 0 0;
 }
 
-.promo-details, .arr-details {
+.product-details {
+    width: 50%;
     padding: 20px;
-    text-align: center;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
 }
 
-.promo-details h3, .arr-details h3 {
+.product-details h3 {
     font-size: 22px;
     margin-bottom: 10px;
 }
 
-.promo-details p, .arr-details p {
+.product-details p {
     font-size: 16px;
     margin-bottom: 20px;
 }
 
-.promo-button, .arr-button {
+.details-button {
     background-color: #007bff;
     color: white;
     padding: 10px 20px;
@@ -159,9 +165,10 @@ h2 {
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    text-align: center;
 }
 
-.promo-button:hover, .arr-button:hover {
+.details-button:hover {
     background-color: #0056b3;
 }
 

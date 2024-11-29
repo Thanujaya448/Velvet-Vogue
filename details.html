@@ -3,58 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product Details</title>
-    <link rel="stylesheet" href="products.css">
+    <title>Velvet Vogue</title>
+    <link rel="stylesheet" href="details.css">
 </head>
 <body>
-    <div class="container">
-        <div class="product-page">
-            <!-- Product Image Gallery -->
-            <div class="product-gallery">
-                <img id="main-image" src="6 (2).jpg" alt="Main Image">
-                <!-- <div class="thumbnails">
-                    <img onclick="changeImage('6 (2).jpg')" src="6 (2).jpg" alt="Thumbnail">
-                    <img onclick="changeImage('6 (3).jpg')" src="6 (3).jpg" alt="Thumbnail">
-                    <img onclick="changeImage('6 (4).jpg')" src="6 (4).jpg" alt="Thumbnail">
-                </div> -->
+
+    <!-- Navigation Bar -->
+    <header>
+        <nav class="navbar">
+            <div class="logo"><b><a href="index.html">Velvet Vogue</a></b></div>
+            <div class="nav_menu">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="categories.html">Categories</a></li>
+                    <li><a href="support.html">Support</a></li>
+                    <li><a href="join.html">Join</a></li>
+                </ul>
             </div>
+        </nav>
+    </header>
 
-            <!-- Product Information -->
-            <div class="product-info">
-                <h1>Flutterly Fabulous A-Line Dress</h1>
-                <p class="price"><span class="original-price">Rs 42,400.00</span> <span class="sale-price">Rs 34,600.00</span></p>
-                <p class="reviews">7 Reviews</p>
-                <p class="color"><strong>Color:</strong> Happy Holly-Days</p>
 
-                <!-- Size Selection -->
-                <div class="sizes">
-                    <p><strong>Size:</strong></p>
-                    <button>XS</button>
-                    <button>S</button>
-                    <button>M</button>
-                    <button>L</button>
-                    <button>XL</button>
+<!-- Production details page -->
+<center>
+    <section class="details">
+        <h2><b></b></h2>
+        <div class="details-container">
+            <!-- New Arrivals 1 -->
+            <div class="details-box">
+                <img src="6 (4).jpg" alt="" class="details-img" style="display: inline;">
+                <div class="product-details">
+                    <h3>Casual Wear</h3>
+                    <p>Latest casual wear for women</p>
+                    <a href="products.html" class="details-button">Add to cart</a>
                 </div>
-
-                <!-- Add to Cart and Wishlist -->
-                <div class="actions">
-                    <button class="add-to-cart">Add To Bag</button>
-                    <button class="add-to-wishlist">Add To Wishlist ♥</button>
-                </div>
-
-                <!-- Product Description -->
-                <div class="product-detail">
-                    <h2>Product Detail</h2>
-                    <p>Covered throughout in a red and green menagerie of red bows, holly, and poinsettias, this vintage-inspired velvet A-line dress is truly timeless! Made from a plush and drapey velvet fabric, this effortlessly gorgeous holiday dress boasts a surplice neckline, short and sheer flutter sleeves with delicate shirring...</p>
+            </div>
+        </section>
+</center>
+    <!-- Contact Info Section -->
+    <footer>
+        <div class="contact">
+            <h2><b>Contact Us</b></h2>
+            <div class="address">
+                <div class="add-box">
+                    <h3><b>Velvet Vogue</b></h3>
+                    <p>500/A,<br>Ananda Coomaraswamy Mawatha,<br>Colombo 00700</p>
+                    <div class="tel">
+                        <p><b>Tel No:</b><br> +94 758 6957</p>
+                    </div>
+                    <div><p><b>Email:</b> Velvetvogue@support.com</p></div>
                 </div>
             </div>
         </div>
-    </div>
-
-    <script>
-        function changeImage(imageSrc) {
-            document.getElementById('main-image').src = imageSrc;
-        }
-    </script>
+    </footer>
 </body>
 </html>
