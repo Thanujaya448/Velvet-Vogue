@@ -97,6 +97,14 @@ body {
 
 
 /* products details page */
+
+.price {
+    color: red;
+    font-weight: bold;
+    text-align: center;
+}
+
+
 h2 {
     font-size: 32px;
     text-align: center;
@@ -196,3 +204,7 @@ h2 {
 a {
     text-decoration: none;
 }
+
+
+
+
