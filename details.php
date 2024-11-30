@@ -1,8 +1,8 @@
 <?php
 // Database connection
 $servername = "localhost"; // Change if your server is different
-$username = "your_username"; // Your database username
-$password = "your_password"; // Your database password
+$username = "root"; // Your database username
+$password = ""; // Your database password
 $dbname = "velvet_vogue"; // Your database name
 
 // Create connection
@@ -13,9 +13,15 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
+// Get product ID from URL and sanitize it
+$product_id = isset($_GET['id']) ? intval($_GET['id']) : 1; // Default to 1 if not provided
+
 // Fetch product details
-$sql = "SELECT * FROM products WHERE id = 1"; // Fetching product with id 1
-$result = $conn->query($sql);
+$sql = "SELECT * FROM products WHERE id = ?";
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("i", $product_id); // Bind the product ID as an integer
+$stmt->execute();
+$result = $stmt->get_result();
 
 if ($result->num_rows > 0) {
     // Output data of each row
@@ -23,6 +29,7 @@ if ($result->num_rows > 0) {
 } else {
     echo "0 results";
 }
+$stmt->close();
 $conn->close();
 ?>
 
