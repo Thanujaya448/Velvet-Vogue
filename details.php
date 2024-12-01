@@ -77,11 +77,21 @@ $conn->close();
         </section>
     </center>
 
-    <!-- Contact Info Section -->
-    <footer>
+        <!-- Contact Info Section -->
+        <footer>
         <div class="contact">
             <h2><b>Contact Us</b></h2>
             <div class="address">
                 <div class="add-box">
                     <h3><b>Velvet Vogue</b></h3>
-                    <p>500/A,<br>Ananda Coomaraswamy Maw
+                    <p>500/A,<br>Ananda Coomaraswamy Mawatha,<br>Colombo 00700</p>
+                    <div class="tel">
+                        <p><b>Tel No:</b><br> +94 758 6957</p>
+                    </div>
+                    <div><p><b>Email:</b> Velvetvogue@support.com</p></div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
