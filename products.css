@@ -168,7 +168,7 @@ h2 {
     background-color: #fff;
 }
 
-.promotion-container, .newarrivals-container {
+.product-gallery, .newarrivals-container {
     display: flex;
     gap: 20px;
     justify-content: space-between;
@@ -177,7 +177,7 @@ h2 {
 
 
 /* Promotion & New Arrivals Boxes */
-.promo-box, .newarr-box {
+.product-card, .newarr-box {
     flex: 1;
     max-width: 30%;
     background-color: #ffffff;
@@ -186,7 +186,7 @@ h2 {
     transition: transform 0.3s;
 }
 
-.promo-box:hover, .newarr-box:hover {
+.product-card:hover, .newarr-box:hover {
     transform: translateY(-5px);
 }
 
