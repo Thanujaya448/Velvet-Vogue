@@ -1,9 +1,9 @@
 <?php
 // Database connection
-$servername = "localhost"; // Change if your server is different
-$username = "root"; // Your database username
-$password = ""; // Your database password
-$dbname = "velvet_vogue"; // Your database name
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "velvet_vogue";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
