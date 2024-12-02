@@ -97,14 +97,13 @@ h1 {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Product Gallery Styles */
-/* .product-gallery {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); 
+.product-gallery {
+    display: flex;
     gap: 20px;
-    padding: 20px;
-    background-color: #fff;
+    flex-wrap: wrap; /* Ensures products wrap to the next row */
+    justify-content: space-between;
 }
+
 
 .product-card {
     background-color: #fff;
