@@ -8,6 +8,23 @@
     <script defer src="script.js"></script>
 </head>
 <body>
+
+<!-- Navigation Bar -->
+<header>
+        <nav class="navbar">
+            <div class="logo"><b><a href="index.html">Velvet Vogue</a></b></div>
+            <div class="nav_menu">
+                <ul>
+                    <li><a class="active" href="index.html">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="accessories.html">Accessories</a></li>
+                    <li><a href="support.html">Support</a></li>
+                    <li><a href="join.html">Join</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    
     <div class="container">
         <h1>Admin Panel - Manage Products</h1>
 
