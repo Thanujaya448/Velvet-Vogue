@@ -98,12 +98,12 @@ h1 {
 }
 
 .product-gallery {
-    display: flex;
-    gap: 20px;
-    flex-wrap: wrap; /* Ensures products wrap to the next row */
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* 5 equal columns */
+    gap: 20px; /* Space between items */
+    padding: 20px;
+    background-color: #fff;
 }
-
 
 .product-card {
     background-color: #fff;
@@ -116,17 +116,18 @@ h1 {
 }
 
 .product-card:hover {
-    transform: scale(1.05);
+    transform: scale(1.05); /* Optional: Add hover effect */
 }
 
 .product-card img {
     width: 100%;
     height: auto;
-    max-height: 300px; 
-    object-fit: cover; 
+    max-height: 300px; /* Maintain consistent image sizes */
+    object-fit: cover;
     border-radius: 8px;
     margin-bottom: 15px;
 }
+
 
 .product-card h3 {
     font-size: 22px;
@@ -165,50 +166,6 @@ h2 {
 .promotion, .newarrivals {
     padding: 50px 20px;
     background-color: #fff;
-}
-
-.product-gallery, .newarrivals-container {
-    display: flex;
-    gap: 20px;
-    justify-content: space-between;
-    flex-wrap: wrap;
-}
-
-
-/* Promotion & New Arrivals Boxes */
-.product-card, .newarr-box {
-    flex: 1;
-    max-width: 30%;
-    background-color: #ffffff;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.397);
-    transition: transform 0.3s;
-}
-
-.product-card:hover, .newarr-box:hover {
-    transform: translateY(-5px);
-}
-
-.promo-img, .arr-img {
-    width: 100%;
-    height: 70%;
-    object-fit: cover;
-    border-radius: 10px 10px 0 0;
-}
-
-.promo-details, .arr-details {
-    padding: 20px;
-    text-align: center;
-}
-
-.promo-details h3, .arr-details h3 {
-    font-size: 22px;
-    margin-bottom: 5px;
-}
-
-.promo-details p, .arr-details p {
-    font-size: 16px;
-    margin-bottom: 20px;
 }
 
 .promo-button, .arr-button {
