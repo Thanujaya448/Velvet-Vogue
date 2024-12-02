@@ -41,3 +41,33 @@ function loadCartData() {
 
 // Call loadCartData on page load
 document.addEventListener('DOMContentLoaded', loadCartData);
+
+
+
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    const editButtons = document.querySelectorAll('.editBtn');
+    const form = document.getElementById('productForm');
+    const productId = document.getElementById('productId');
+    const productTitle = document.getElementById('productTitle');
+    const productCategory = document.getElementById('productCategory');
+    const productDescription = document.getElementById('productDescription');
+    const productPrice = document.getElementById('productPrice');
+
+    editButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            productId.value = button.dataset.id;
+            productTitle.value = button.dataset.title;
+            productCategory.value = button.dataset.category;
+            productDescription.value = button.dataset.description;
+            productPrice.value = button.dataset.price;
+
+            form.scrollIntoView({ behavior: 'smooth' });
+        });
+    });
+});
+
+
+
+
