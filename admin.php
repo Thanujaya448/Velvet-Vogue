@@ -16,7 +16,7 @@
             <div class="nav_menu">
                 <ul>
                     <li><a class="active" href="index.html">Home</a></li>
-                    <li><a href="products.html">Products</a></li>
+                    <li><a href="product.php">Products</a></li>
                     <li><a href="accessories.html">Accessories</a></li>
                     <li><a href="support.html">Support</a></li>
                     <li><a href="join.html">Join</a></li>

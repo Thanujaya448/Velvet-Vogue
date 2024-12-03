@@ -1,0 +1,215 @@
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Ephesis&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Libre+Bodoni:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+/* General Body Styling */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', serif;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+/* Navigation Bar */
+.navbar {
+    background-color: #ffffff;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 48px;
+    font-weight: 700;
+    font-family: 'Libre Bodoni', serif;
+    color: #333;
+}
+
+.logo a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.nav_menu ul {
+    list-style: none;
+    display: flex;
+    gap: 2em;
+}
+
+.nav_menu a {
+    text-decoration: none;
+    color: #333;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.nav_menu a:hover,
+.nav_menu .active {
+    color: #007bff;
+}
+
+/* Footer / Contact Section */
+.contact {
+    padding: 50px 20px;
+    background-color: #333;
+    color: #fff;
+}
+
+.address {
+    text-align: center;
+}
+
+.add-box {
+    display: inline-block;
+    max-width: 400px;
+    margin-top: 20px;
+}
+
+.tel, .email {
+    margin: 10px 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+p {
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+
+/* General Body Styling */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: #faf3f3;
+    color: #333;
+}
+
+/* Product Details Section */
+.details {
+    padding: 60px 20px;
+    background: rgba(255, 255, 255, 0.705);
+    text-align: center;
+}
+
+.details h2 {
+    font-size: 36px;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 40px;
+}
+
+.details-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+/* Details Box Styling */
+.details-box {
+    display: flex;
+    flex-direction: row;
+    max-width: 800px;
+    width: 100%;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.details-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Image Styling */
+.details-img {
+    width: 50%;
+    height: auto;
+    object-fit: cover;
+}
+
+/* Product Details Text Section */
+.product-details {
+    width: 50%;
+    padding: 30px;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.product-details h3 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    font-weight: 600;
+    color: #555;
+}
+
+.product-details p {
+    font-size: 16px;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.price {
+    font-size: 18px;
+    font-weight: bold;
+    color: #e63946;
+}
+
+/* Add to Cart Button */
+.details-button {
+    background-color: #007bff;
+    color: white;
+    padding: 12px 25px;
+    font-size: 16px;
+    font-weight: 600;
+    text-align: center;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: auto;
+    align-self: flex-start;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+}
+
+.details-button:hover {
+    background-color: #0056b3;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .details-box {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .details-img {
+        width: 100%;
+    }
+
+    .product-details {
+        width: 100%;
+        padding: 20px;
+        text-align: center;
+    }
+
+    .product-details h3, .product-details p {
+        text-align: center;
+    }
+
+    .details-button {
+        align-self: center;
+    }
+}
