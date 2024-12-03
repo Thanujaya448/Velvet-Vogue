@@ -88,3 +88,30 @@ table th, table td {
 table th {
     background-color: #f4f4f4;
 }
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .details-box {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .details-img {
+        width: 100%;
+    }
+
+    .product-details {
+        width: 100%;
+        padding: 20px;
+        text-align: center;
+    }
+
+    .product-details h3, .product-details p {
+        text-align: center;
+    }
+
+    .details-button {
+        align-self: center;
+    }
+}
