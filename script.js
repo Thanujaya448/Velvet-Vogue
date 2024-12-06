@@ -69,5 +69,35 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
+document.getElementById("login-form").addEventListener("submit", function (event) {
+    event.preventDefault(); // Prevent form submission from reloading the page
+
+    const form = event.target;
+    const formData = new FormData(form);
+
+    // Send login data to PHP backend
+    fetch("login.php", {
+        method: "POST",
+        body: formData
+    })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                // Save user name and login state to localStorage
+                localStorage.setItem("isLoggedIn", true);
+                localStorage.setItem("userName", data.userName);
+
+                // Update navigation bar
+                const joinProfileLink = document.getElementById("join-profile");
+                joinProfileLink.innerHTML = `<a href="profile.html">${data.userName}</a>`;
+
+                alert(`Welcome, ${data.userName}!`);
+            } else {
+                alert("Invalid login credentials!");
+            }
+        })
+        .catch(error => console.error("Error:", error));
+});
+
 
 

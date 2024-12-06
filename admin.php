@@ -12,14 +12,14 @@
 <!-- Navigation Bar -->
 <header>
         <nav class="navbar">
-            <div class="logo"><b><a href="index.html">Velvet Vogue</a></b></div>
+            <div class="logo"><b><a href="index.php">Velvet Vogue</a></b></div>
             <div class="nav_menu">
                 <ul>
-                    <li><a class="active" href="index.html">Home</a></li>
+                    <li><a class="active" href="index.php">Home</a></li>
                     <li><a href="product.php">Products</a></li>
                     <li><a href="accessories.html">Accessories</a></li>
                     <li><a href="support.html">Support</a></li>
-                    <li><a href="join.html">Join</a></li>
+                    <li><a href="join.php">Join</a></li>
                 </ul>
             </div>
         </nav>

@@ -51,6 +51,6 @@ $conn->close();
         </style>
     </head>
     <body>
-    <a href="index.html" class="Backhome">Back To Home</a>
+    <a href="index.php" class="Backhome">Back To Home</a>
     </body>
 </html>

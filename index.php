@@ -1,3 +1,11 @@
+<?php
+// Start the session
+session_start();
+?>
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,14 +19,23 @@
     <!-- Navigation Bar -->
     <header>
         <nav class="navbar">
-            <div class="logo"><b><a href="index.html">Velvet Vogue</a></b></div>
+            <div class="logo"><b><a href="index.php">Velvet Vogue</a></b></div>
             <div class="nav_menu">
                 <ul>
-                    <li><a class="active" href="index.html">Home</a></li>
+                    <li><a class="active" href="index.php">Home</a></li>
                     <li><a href="product.php">Products</a></li>
                     <li><a href="accessories.html">Accessories</a></li>
                     <li><a href="support.html">Support</a></li>
-                    <li><a href="join.html">Join</a></li>
+                    <li id="join-profile">
+                        <?php if (isset($_SESSION['username'])): ?>
+                            <a href="register.php"><?php echo htmlspecialchars($_SESSION['username']); ?></a>
+                        <?php else: ?>
+                            <a href="join.php">Join</a>
+                        <?php endif; ?>
+                    </li>
+                    <?php if (isset($_SESSION['username'])): ?>
+                    <li><a href="logout.php">Logout</a></li>
+                    <?php endif; ?>
                 </ul>
             </div>
         </nav>

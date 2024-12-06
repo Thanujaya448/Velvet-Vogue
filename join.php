@@ -1,3 +1,8 @@
+<?php
+// Start session
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,14 +15,23 @@
     <!-- Navigation Bar -->
     <header>
         <nav class="navbar">
-            <div class="logo"><b><a href="index.html">Velvet Vogue</a></b></div>
+            <div class="logo"><b><a href="index.php">Velvet Vogue</a></b></div>
             <div class="nav_menu">
                 <ul>
-                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.php">Home</a></li>
                     <li><a href="product.php">Product</a></li>
                     <li><a href="accessories.html">Accessories</a></li>
                     <li><a href="support.html">Support</a></li>
-                    <li><a class="active" href="join.html">Join</a></li>
+                    <li id="join-profile">
+                        <?php if (isset($_SESSION['username'])): ?>
+                            <a href="profile.php"><?php echo htmlspecialchars($_SESSION['username']); ?></a>
+                        <?php else: ?>
+                            <a class="active" href="join.php">Join</a>
+                        <?php endif; ?>
+                    </li>
+                    <?php if (isset($_SESSION['username'])): ?>
+                    <li><a href="logout.php">Logout</a></li>
+                    <?php endif; ?>
                 </ul>
             </div>
         </nav>
@@ -26,9 +40,9 @@
     <!-- Main Container for Login and Registration Forms -->
     <div class="container">
         <!-- Login Form -->
-        <div class="form-box" id="login">
+        <div class="form-box" id="login" style="<?php echo isset($_SESSION['username']) ? 'display:none;' : 'display:block;'; ?>">
             <h2>Login</h2>
-            <form class="login-form">
+            <form class="login-form" action="login.php" method="POST">
                 <div class="input-group">
                     <label for="login-username">Username</label>
                     <input type="text" id="login-username" name="username" required>
@@ -75,5 +89,6 @@
             document.getElementById('register').style.display = form === 'register' ? 'block' : 'none';
         }
     </script>
+    <script src="script.js"></script>
 </body>
 </html>
