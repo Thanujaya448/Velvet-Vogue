@@ -16,10 +16,21 @@ session_start();
     <script src="scripts.js" defer></script>
 </head>
 <body>
+
+    <?php 
+        $user_id = $_SESSION['user_id'];
+
+        $detailsQuery = "SELECT * FROM users WHERE id = ?";
+        $stmt = $conn->prepare($detailsQuery);
+        $stmt->bind_param("i", $user_id);
+        $stmt->execute();
+        $user = $stmt->get_result()->fetch_assoc();
+    ?>
+
     <header class="profile-header">
         <div class="profile-picture">
             <form action="upload_picture.php" method="POST" enctype="multipart/form-data">
-                <img src="uploads/<?php echo $user['profile_picture']; ?>" alt="Profile Picture">
+                <img src="<?php echo $user['profile_picture']; ?>" alt="Profile Picture">
                 <input type="file" name="profile_picture" accept="image/*">
                 <button type="submit">Update Picture</button>
             </form>
@@ -29,6 +40,8 @@ session_start();
 
     <main class="profile-content">
         <!-- Personal Information -->
+
+
         <section>
             <h2>Personal Information</h2>
             <form action="update_profile.php" method="POST">
