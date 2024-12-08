@@ -1,5 +1,7 @@
 <?php
 // Start the session
+include 'db.php';
+
 session_start();
 ?>
 
@@ -22,7 +24,7 @@ session_start();
                 <button type="submit">Update Picture</button>
             </form>
         </div>
-        <h1>Welcome, <?php echo $user['username']; ?>!</h1>
+        <h1>Welcome, <?php echo $_SESSION['username']; ?>!</h1>
     </header>
 
     <main class="profile-content">

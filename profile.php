@@ -13,7 +13,7 @@ $stmt->bind_param("i", $user_id);
 $stmt->execute();
 $userResult = $stmt->get_result()->fetch_assoc();
 
-$detailsQuery = "SELECT * FROM user_details WHERE user_id = ?";
+$detailsQuery = "SELECT * FROM users WHERE id = ?";
 $stmt = $conn->prepare($detailsQuery);
 $stmt->bind_param("i", $user_id);
 $stmt->execute();

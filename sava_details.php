@@ -8,7 +8,7 @@ $phone = $_POST['phone'];
 $address = $_POST['address'];
 
 // Check if details exist
-$checkQuery = "SELECT * FROM user_details WHERE user_id = ?";
+$checkQuery = "SELECT * FROM users WHERE id = ?";
 $stmt = $conn->prepare($checkQuery);
 $stmt->bind_param("i", $user_id);
 $stmt->execute();
@@ -17,15 +17,15 @@ $stmt->close();
 
 if ($result->num_rows > 0) {
     // Update details
-    $updateQuery = "UPDATE user_details SET full_name = ?, phone = ?, address = ? WHERE user_id = ?";
+    $updateQuery = "UPDATE users SET full_name = ?, phone = ?, address = ? WHERE id = ?";
     $stmt = $conn->prepare($updateQuery);
     $stmt->bind_param("sssi", $full_name, $phone, $address, $user_id);
     $stmt->execute();
 } else {
     // Insert new details
-    $insertQuery = "INSERT INTO user_details (user_id, full_name, phone, address) VALUES (?, ?, ?, ?)";
+    $insertQuery = "INSERT INTO users (full_name, phone, address) VALUES (?, ?, ?) WHERE id = ?";
     $stmt = $conn->prepare($insertQuery);
-    $stmt->bind_param("isss", $user_id, $full_name, $phone, $address);
+    $stmt->bind_param("isss", $full_name, $phone, $address);
     $stmt->execute();
 }
 $stmt->close();
