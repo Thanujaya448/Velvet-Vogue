@@ -1,30 +1,8 @@
 <?php
-// Include database connection file
-require_once 'db.php';
-
-// Start session
+// Start the session
 session_start();
-
-// Check if user is logged in
-if (!isset($_SESSION['username'])) {
-    // Display error message if user is not logged in
-    echo "No user is logged in.";
-    exit;
-}
-
-// Get user data from database
-$user = getUserData($_SESSION['username']);
-
-// Get order history from database
-$orders = getOrderHistory($_SESSION['username']);
-
-// Get wishlist from database
-$wishlist = getWishlist($_SESSION['username']);
-
-// Get payment methods from database
-$payment_methods = getPaymentMethods($_SESSION['username']);
-
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -36,7 +14,6 @@ $payment_methods = getPaymentMethods($_SESSION['username']);
     <script src="scripts.js" defer></script>
 </head>
 <body>
-
     <header class="profile-header">
         <div class="profile-picture">
             <form action="upload_picture.php" method="POST" enctype="multipart/form-data">
@@ -45,7 +22,7 @@ $payment_methods = getPaymentMethods($_SESSION['username']);
                 <button type="submit">Update Picture</button>
             </form>
         </div>
-        <h1>Welcome, <?php echo htmlspecialchars($_SESSION['username']); ?>!</h1>
+        <h1>Welcome, <?php echo $user['username']; ?>!</h1>
     </header>
 
     <main class="profile-content">
@@ -158,143 +135,3 @@ $payment_methods = getPaymentMethods($_SESSION['username']);
     </main>
 </body>
 </html>
-
-<?php
-// Function to get user data from database
-function getUserData($username) {
-    // Connect to database
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "velvet_vogue";
-
-// Create a connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-    // Check connection
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    }
-
-    // Query to get user data
-    $query = "SELECT * FROM users WHERE username = '$username'";
-
-    // Execute query
-    $result = $conn->query($query);
-
-    // Fetch user data
-    $user = $result->fetch_assoc();
-
-    // Close connection
-    $conn->close();
-
-    // Return user data
-    return $user;
-}
-
-// Function to get order history from database
-function getOrderHistory($username) {
-    // Connect to database
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "velvet_vogue";
-
-// Create a connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-    // Check connection
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    }
-
-    // Query to get order history
-    $query = "SELECT * FROM orders WHERE username = '$username'";
-
-    // Execute query
-    $result = $conn->query($query);
-
-    // Fetch order history
-    // $orders = array();
-    // while ($row = $result->fetch_assoc()) {
-    //     $orders[] = $row;
-    // }
-
-    // // Close connection
-    // $conn->close();
-
-    // // Return order history
-    // return $orders;
-}
-
-// Function to get wishlist from database
-function getWishlist($username) {
-    // Connect to database
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "velvet_vogue";
-    
-    // Create a connection
-    $conn = new mysqli($servername, $username, $password, $dbname);
-
-    // Check connection
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    }
-
-    // Query to get wishlist
-    $query = "SELECT * FROM wishlist WHERE username = '$username'";
-
-    // Execute query
-    $result = $conn->query($query);
-
-    // Fetch wishlist
-    // $wishlist = array();
-    // while ($row = $result->fetch_assoc()) {
-    //     $wishlist[] = $row;
-    // }
-
-    // // Close connection
-    // $conn->close();
-
-    // // Return wishlist
-    // return $wishlist;
-}
-
-// Function to get payment methods from database
-function getPaymentMethods($username) {
-    // Connect to database
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "velvet_vogue";
-    
-    // Create a connection
-    $conn = new mysqli($servername, $username, $password, $dbname);
-
-    // Check connection
-    if ($conn->connect_error) {
-        die("Connection failed: " . $conn->connect_error);
-    }
-
-    // Query to get payment methods
-    $query = "SELECT * FROM payment_methods WHERE username = '$username'";
-
-    // Execute query
-    $result = $conn->query($query);
-
-    // Fetch payment methods
-    // $payment_methods = array();
-    // while ($row = $result->fetch_assoc()) {
-    //     $payment_methods[] = $row;
-    // }
-
-    // // Close connection
-    // $conn->close();
-
-    // // Return payment methods
-    // return $payment_methods;
-}
-?>
-```
