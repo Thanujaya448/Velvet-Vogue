@@ -14,7 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $stmt->bind_param('sssi', $full_name, $phone, $address, $user_id);
 
     if ($stmt->execute()) {
-        header("Location: profile.php");
+        header("Location: testprofile.php");
     } else {
         echo "Error updating profile.";
     }

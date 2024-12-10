@@ -1,6 +1,6 @@
 <?php
 session_start();
-require 'db_connection.php'; // Ensure you connect to the database
+require 'db.php'; // Ensure you connect to the database
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $username = $_POST['username'];
@@ -16,7 +16,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $user = $result->fetch_assoc();
         if (password_verify($password, $user['password'])) {
             $_SESSION['username'] = $user['username'];
-            header("Location: join.php");
+
+            $sql = "SELECT * FROM users WHERE username = '$username'";
+            $result = dbFunction($sql);
+            $newArry = mysqli_fetch_assoc($result);
+
+            $_SESSION['user_id'] = $newArry['id'];
+            header("Location: index.php");
+
         } else {
             echo "Invalid password.";
         }

@@ -3,7 +3,7 @@ session_start();
 include 'db_connection.php';
 
 // Simulate logged-in user
-$_SESSION['user_id'] = 1;
+//$_SESSION['user_id'] = 1;
 $user_id = $_SESSION['user_id'];
 
 // Fetch user data

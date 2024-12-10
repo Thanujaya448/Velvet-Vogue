@@ -3,6 +3,13 @@
 include 'db.php';
 
 session_start();
+
+if(!isset($_SESSION['user_id']))
+{
+	header("Location: ./join.php");
+}
+
+
 ?>
 
 
@@ -109,7 +116,7 @@ session_start();
         <section>
             <h2>Wishlist</h2>
             <ul>
-                <?php foreach ($wishlist as $item): ?>
+                <?php foreach ($wishl-ist as $item): ?>
                 <li>
                     <?php echo $item['product_name']; ?>
                     <button onclick="moveToCart(<?php echo $item['product_id']; ?>)">Move to Cart</button>
