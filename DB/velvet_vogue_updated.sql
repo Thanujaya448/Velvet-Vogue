@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 12, 2024 at 10:28 AM
+-- Generation Time: Dec 12, 2024 at 01:44 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -20,6 +20,49 @@ SET time_zone = "+00:00";
 --
 -- Database: `velvet_vogue`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `cartitems`
+--
+
+CREATE TABLE `cartitems` (
+  `oid` int(11) NOT NULL,
+  `uid` int(11) NOT NULL,
+  `pid` int(11) NOT NULL,
+  `quantity` int(11) NOT NULL,
+  `image` varchar(800) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `cartitems`
+--
+
+INSERT INTO `cartitems` (`oid`, `uid`, `pid`, `quantity`, `image`) VALUES
+(5, 1, 11, 50, 'uploads/1733213069_6 (2).jpg'),
+(6, 1, 19, 50, 'uploads/1733219511_22.png');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `carttotal`
+--
+
+CREATE TABLE `carttotal` (
+  `uid` int(11) NOT NULL,
+  `subtotal` float NOT NULL,
+  `tax` float NOT NULL,
+  `shipping` float NOT NULL,
+  `total` float NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `carttotal`
+--
+
+INSERT INTO `carttotal` (`uid`, `subtotal`, `tax`, `shipping`, `total`) VALUES
+(1, 369.87, 66.5766, 18.4935, 454.94);
 
 -- --------------------------------------------------------
 
@@ -204,6 +247,12 @@ CREATE TABLE `wishlist` (
 --
 
 --
+-- Indexes for table `cartitems`
+--
+ALTER TABLE `cartitems`
+  ADD PRIMARY KEY (`oid`);
+
+--
 -- Indexes for table `orders`
 --
 ALTER TABLE `orders`
@@ -267,6 +316,12 @@ ALTER TABLE `wishlist`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `cartitems`
+--
+ALTER TABLE `cartitems`
+  MODIFY `oid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `orders`
