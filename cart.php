@@ -2,11 +2,12 @@
 session_start();
 require './basicPHP/basic.php'; // load basic html from session
 include './basicPHP/functions.php'; //basic functions
+require 'db.php';
 
 
-if(!isset($_SESSION['email']))
+if(!isset($_SESSION['user_id']))
 {
-	header("Location: ./login/login.php");
+	header("Location: ./login.php");
 }
 
 ?>
@@ -23,39 +24,26 @@ if(!isset($_SESSION['email']))
 <title>Cart</title>
 </head>
 
-<body onload="showTotal(<?php echo $_SESSION['uid']; ?>)">
+<body onload="showTotal(<?php echo $_SESSION['user_id']; ?>)">
 	
-	<section id="header" class="header">
-		
-		<a href="#">
-			<img src= "../img/gym_logo.png" alt= "Gym Logo" class="logo">
-		</a>
-		
-		<div>
-			
-			<ul id="nav-bar" class="nav-bar">
-				<li><a href="index.php">Home</a></li>
-				<li><a href="products.php">Products</a></li>
-				<li><a href="./login/login.php">Login/Registe</a></li>
-				<li><a href="about.php">About</a></li>
-				<li><a href="contact.php">Contact us</a></li>
-			</ul>
-			
-		</div>
-		
-		<div>
-			<?php echo $_SESSION['navi2']; ?>
-		</div>
-		
-	</section>
-	
-	
-	<section id="contact-header" class="contact-header">
-		
-		<h2>#We're_almost_there!</h2>
-		<p style="line-height: 25px;">Thank you for shopping with us!<br>Your satisfaction is our priority.</p>
+	  <!-- Navigation Bar -->
+	  <header>
+        <nav class="navbar">
+            <div class="logoT"><b><a href="index.php">Velvet Vogue</a></b></div>
+            <div class="nav_menu">
+                <ul>
+                    <li><a href="index.php">Home</a></li>
+                    <li><a class="active" href="products.html">Products</a></li>
+                    <li><a href="accessories.html">Accessories</a></li>
+                    <li><a href="support.html">Support</a></li>
+                    <li><a href="join.php">Join</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
 
-	</section>
+	
+	
 	
 	
 	<section id="cart" class="cart section-p1">
@@ -76,7 +64,7 @@ if(!isset($_SESSION['email']))
 
 				<?php
 
-					$sql = "SELECT * FROM cartitems WHERE uid = '{$_SESSION['uid']}'";
+					$sql = "SELECT * FROM cartitems WHERE uid = '{$_SESSION['user_id']}'";
 
 					$result = dbFunction($sql);
 
@@ -84,20 +72,20 @@ if(!isset($_SESSION['email']))
 
 						while($dA1 = mysqli_fetch_assoc($result)) { ?>
 
-
+							
 							<?php //getting product details
-							$productSQL = "SELECT * FROM product WHERE pid = '{$dA1['pid']}'";
+							$productSQL = "SELECT * FROM products WHERE id = '{$dA1['pid']}'";
 							$resultP = dbFunction($productSQL);
 							$dP = mysqli_fetch_assoc($resultP);
 							
-							$firstPrice = (int)$dA1['quantity'] * (int)$dP['price'];
+							$firstPrice = (int)$dA1['quantity'] * (float)$dP['price'];
 							
 							?>
 
 
 							<tr id="tablerowOfProduct<?php echo $dA1['pid'] ?>">
 								<td><img src="<?php echo $dA1['image'] ?>" alt=""></td>
-								<td><?php echo $dP['product_Name']; ?></td>
+								<td><?php echo $dP['title']; ?></td>
 								<td><?php echo priceFormat($dP['price']); ?></td>
 								<td><input type="number" value="<?php echo $dA1['quantity']; ?>" min="1" max="50" name="inputQnt" onchange="sendAndChangePrice(this.value, '<?php echo $dA1['pid']; ?>', '<?php echo $dA1['uid']; ?>')"></td>
 
@@ -154,10 +142,21 @@ if(!isset($_SESSION['email']))
 	</section>
 	
 
-
-<footer class="section-p1" >
-	<?php echo $_SESSION['footer']?>
-</footer>
+	<footer>
+        <div class="contact2">
+            <h2><b>Contact Us</b></h2>
+            <div class="address">
+                <div class="add-box">
+                    <h3><b>Velvet Vogue</b></h3>
+                    <p>500/A,<br>Ananda Coomaraswamy Mawatha,<br>Colombo 00700</p>
+                    <div class="tel">
+                        <p><b>Tel No:</b><br> +94 758 6957</p>
+                    </div>
+                    <div><p><b>Email:</b> Velvetvogue@support.com</p></div>
+                </div>
+            </div>
+        </div>
+    </footer>
 	
 	<script src="script.js"></script>
 </body>

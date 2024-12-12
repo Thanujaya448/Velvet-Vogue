@@ -1,3 +1,28 @@
+//fuction t0 show total price
+function showTotal(UID)
+{
+	const xhr = new XMLHttpRequest();
+
+	xhr.onload = function(){
+		//alert(this.responseText);
+
+		const resData = JSON.parse(this.responseText);
+
+		document.getElementById("subtotal-cart").innerHTML = resData.subtotal;
+		document.getElementById("tax-cart").innerHTML = resData.tax;
+		document.getElementById("shipping-cart").innerHTML = resData.shippinginfo;
+		document.getElementById("total-cart").innerHTML = resData.total;
+	}
+
+	const url = "cartPriceUpdate.php?UID=" + UID;
+
+	xhr.open("GET", url, true);
+	xhr.send();
+
+}
+
+
+
 // Function to filter products by search input
 function filterProducts() {
     const input = document.getElementById('searchBar').value.trim().toLowerCase();
@@ -98,6 +123,78 @@ document.getElementById("login-form").addEventListener("submit", function (event
         })
         .catch(error => console.error("Error:", error));
 });
+
+
+
+
+
+
+
+
+//ajax to update each product price after amount changed
+function sendAndChangePrice(quantity, pid, uid)
+{
+	const xhr = new XMLHttpRequest();
+
+	xhr.onload = function(){
+		const priceID = document.getElementById("totalPrice"+pid);
+		priceID.innerHTML = this.responseText;
+		showTotal(uid); //change the total
+	}
+
+
+	xhr.open("POST", "cartPriceUpdate.php");
+	xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+	xhr.send("QNT=" +quantity+"&proID="+pid+"&userID="+uid+"&Appro=Yes");
+
+}
+
+
+//function to send pid from product cart-view
+function addItemtoCart(event, proID, ImgPath, userID)
+{
+	//alert(proID + " " + ImgPath + " " + userID);
+	event.preventDefault();
+	event.stopPropagation();
+	
+	const xhr = new XMLHttpRequest();
+
+	xhr.onload = function(){
+		//alert(this.responseText);
+	}
+
+
+	xhr.open("POST", "cartPriceUpdate.php");
+	xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+	xhr.send("proIDof1Item=" + proID + "&imgPath1Item=" + ImgPath + "&userID1Item=" + userID);
+
+} 
+
+
+
+//function to delete product from cart
+function deleteItemFromCart(event, productID, userID)
+{
+	event.preventDefault();
+	event.stopPropagation();
+	
+	const xhr = new XMLHttpRequest();
+
+	xhr.onload = function(){
+		document.getElementById("tablerowOfProduct" + productID).style.display = "none";
+		showTotal(userID);// show total after deleting
+	}
+
+
+	xhr.open("POST", "cartPriceUpdate.php");
+	xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+	xhr.send("deleteUID=" + userID + "&deletePID=" + productID);
+}
+
+
+
+
+
 
 
 

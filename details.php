@@ -1,4 +1,9 @@
 <?php
+
+session_start();
+
+//print_r($_SESSION);
+
 // Database connection
 $servername = "localhost";
 $username = "root";
@@ -68,11 +73,80 @@ $conn->close();
                     <h3>Category: <?php echo $row['category']; ?></h3>
                     <p><?php echo $row['description']; ?></p>
                     <p class="price">Price: $<?php echo $row['price']; ?></p>
-                    <a href="cart.php?id=<?php echo $row['id']; ?>" class="details-button">Add to Cart</a>
+                        <form method="POST" style="display:inline">
+                            <input type="number" value="1" min="1" max="50" name="qtn">
+                            <button class="normal" name="add2cart" value="<?php echo $_GET['id']; ?>">Add to Cart</button>
+                        </form>
                 </div>
             </div>
         </div>
     </section>
+
+
+    	<!-- add to cart function -->
+	<?php 
+
+        if(isset($_POST['add2cart']))
+        {
+
+            if(!isset($_SESSION['user_id']))
+            {
+                //header('Location:./join.php');
+            }
+
+
+            $proID = $_POST['add2cart'];
+            $quantity = $_POST['qtn'];
+            $type;
+            $sqladdcart;
+
+            $con = mysqli_connect("localhost", "root", "", "velvet_vogue", "3306");
+
+            if (!$con){
+                die("Sorry, you can't connect into the database.");
+            }
+
+            
+
+            $sql = "SELECT * FROM cartitems WHERE uid = {$_SESSION['user_id']} AND pid = $proID";
+            $result = mysqli_query($con, $sql);
+
+            if(mysqli_num_rows($result) > 0)
+            {
+                $type = "old";
+            }
+            else{
+                $type = "new";
+            }
+
+
+            if($type == "new")
+            {
+                $imgPath = $row['image'];
+                $sqladdcart = "INSERT INTO `cartitems` (`uid`, `pid`, `quantity`, `image`) VALUES ('{$_SESSION['user_id']}', '$proID', '$quantity', '$imgPath')";
+            }
+            else if($type == "old")
+            {
+
+                $sql_count = "SELECT * FROM cartitems WHERE uid = '{$_SESSION['user_id']}' AND pid = '$proID'";
+                $row1 = mysqli_fetch_assoc(mysqli_query($con, $sql_count));
+
+                $newcount = (int)$row1['quantity'];
+                $newquantity = (int)$quantity;
+
+                $newVal =  $newcount + $newquantity;
+
+                $sqladdcart = "UPDATE `cartitems` SET `quantity` = '$newVal' WHERE uid = '{$_SESSION['user_id']}' AND pid = '$proID'";
+            }
+
+            $addItem = mysqli_query($con, $sqladdcart);
+        }
+
+    ?>
+
+
+
+
 
     <!-- Footer -->
     <footer>
