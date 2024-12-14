@@ -148,7 +148,7 @@ include 'db.php';
 
         $sql1 = "SELECT * FROM carttotal WHERE uid = '{$_SESSION['user_id']}'"; // difining table
         $sql2 = "INSERT INTO `carttotal` (`uid`, `subtotal`, `tax`, `shipping`, `total`) VALUES ('{$_SESSION['user_id']}', '$subTotal', '$tax', '$shipping', '$total')";
-        $sql3 = "UPDATE carttotal SET uid = '{$_SESSION['user_id']}', subtotal = '$subTotal', tax = '$tax', shipping = '$shipping', total = '$total' WHERE uid = '{$_SESSION['uid']}'";
+        $sql3 = "UPDATE carttotal SET uid = '{$_SESSION['user_id']}', subtotal = '$subTotal', tax = '$tax', shipping = '$shipping', total = '$total' WHERE uid = '{$_SESSION['user_id']}'";
 
         $totalResult = dbFunction($sql1);
 
