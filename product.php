@@ -1,4 +1,5 @@
 <?php
+session_start();
 // Database Connection
 $servername = "localhost";
 $username = "root";
@@ -35,7 +36,16 @@ $products = $conn->query("SELECT * FROM products");
                     <li><a class="active" href="products.html">Products</a></li>
                     <li><a href="accessories.html">Accessories</a></li>
                     <li><a href="support.html">Support</a></li>
-                    <li><a href="join.php">Join</a></li>
+                    <li id="join-profile">
+                        <?php if (isset($_SESSION['username'])): ?>
+                            <a href="testprofile.php"><?php echo htmlspecialchars($_SESSION['username']); ?></a>
+                        <?php else: ?>
+                            <a href="join.php">Join</a>
+                        <?php endif; ?>
+                    </li>
+                    <?php if (isset($_SESSION['username'])): ?>
+                    <li><a href="logout.php">Logout</a></li>
+                    <?php endif; ?>
                 </ul>
             </div>
         </nav>

@@ -28,7 +28,7 @@ session_start();
                     <li><a href="support.html">Support</a></li>
                     <li id="join-profile">
                         <?php if (isset($_SESSION['username'])): ?>
-                            <a href="register.php"><?php echo htmlspecialchars($_SESSION['username']); ?></a>
+                            <a href="testprofile.php"><?php echo htmlspecialchars($_SESSION['username']); ?></a>
                         <?php else: ?>
                             <a href="join.php">Join</a>
                         <?php endif; ?>
